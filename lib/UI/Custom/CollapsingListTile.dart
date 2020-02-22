@@ -13,8 +13,8 @@ class CollapsingListTile extends StatefulWidget {
       @required this.title,
       @required this.icon,
       @required this.animationController,
-      this.isSelected = false,
-      this.onTap})
+      // this.isSelected = false,
+      this.onTap, this.isSelected = false})
       : super(key: key);
 
   @override
@@ -23,15 +23,16 @@ class CollapsingListTile extends StatefulWidget {
 
 class _CollapsingListTileState extends State<CollapsingListTile> {
   Animation<double> widthAnimation, sizedBoxAnimation;
+  
   @override
   void initState() {
     widthAnimation = Tween<double>(
-      begin: 200,
-      end: 70,
+      begin: 70,
+      end: 200,
     ).animate(widget.animationController);
     sizedBoxAnimation = Tween<double>(
-      begin: 10,
-      end: 0,
+      begin: 0,
+      end: 10,
     ).animate(widget.animationController);
     super.initState();
   }
